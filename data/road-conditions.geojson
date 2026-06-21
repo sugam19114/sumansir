@@ -1,0 +1,597 @@
+{
+  "type": "FeatureCollection",
+  "name": "Nepal Road Conditions",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "id": 1,
+        "name": "Prithvi Highway (Kathmandu-Pokhara)",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "Road in good condition. Two-lane highway operational throughout. Minor repairs ongoing near Malekhu section.",
+        "last_updated": "2026-06-18",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "National Highway",
+        "length_km": 200,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.3656, 27.6710],
+          [85.1200, 27.7000],
+          [84.9200, 27.8000],
+          [84.7200, 27.8500],
+          [84.4800, 27.8800],
+          [84.2400, 28.0200],
+          [84.0100, 28.2100]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+        "id": 2,
+        "name": "Arniko Highway (Kathmandu-Kodari)",
+        "status": "construction",
+        "status_color": "#2980b9",
+        "condition_details": "Major reconstruction work underway between Banepa and Dolalghat. Road widening project. One-lane alternating traffic. Expect significant delays.",
+        "last_updated": "2026-06-17",
+        "affected_by": "construction",
+        "alternative_route": "Sindhuli Road via Hetauda",
+        "road_type": "National Highway",
+        "length_km": 114,
+        "surface": "partially_paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.5200, 27.6300],
+          [85.6500, 27.6400],
+          [85.7800, 27.6200],
+          [85.8700, 27.7100],
+          [85.9600, 27.8200],
+          [86.0700, 27.9400]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+        "id": 3,
+        "name": "Kalanki-Thankot Section",
+        "status": "caution",
+        "status_color": "#f39c12",
+        "condition_details": "Narrow road sections. Heavy traffic congestion especially during peak hours. Road widening incomplete. Potholes in several sections.",
+        "last_updated": "2026-06-19",
+        "affected_by": "congestion",
+        "alternative_route": null,
+        "road_type": "National Highway",
+        "length_km": 12,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.2900, 27.6950],
+          [85.2500, 27.7000],
+          [85.2100, 27.7050],
+          [85.1700, 27.7100]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "properties": {
+        "id": 4,
+        "name": "Muglin-Narayanghat Road",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "Recently upgraded dual carriageway. Smooth surface. Scenic gorge drive along Trishuli river. No restrictions.",
+        "last_updated": "2026-06-15",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "National Highway",
+        "length_km": 36,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [84.7200, 27.8500],
+          [84.6500, 27.8800],
+          [84.5500, 27.9000],
+          [84.4300, 27.9200]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "properties": {
+        "id": 5,
+        "name": "Narayanghat-Butwal Highway",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "East-West Highway section in good condition. Wide paved road. Speed limit 80km/h. Occasional speed bumps near settlements.",
+        "last_updated": "2026-06-16",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "East-West Highway",
+        "length_km": 115,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [84.4300, 27.7000],
+          [84.1000, 27.6800],
+          [83.8000, 27.6000],
+          [83.4500, 27.5000]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "properties": {
+        "id": 6,
+        "name": "BP Highway (Hetauda-Sindhuli-Bardibas)",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "BP Highway in good operational condition. Mountainous road with frequent curves. Drive carefully on hill sections.",
+        "last_updated": "2026-06-14",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "National Highway",
+        "length_km": 170,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.0400, 27.4200],
+          [85.2000, 27.2500],
+          [85.4000, 27.0500],
+          [85.6500, 26.9800],
+          [85.9100, 26.9600]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 7,
+      "properties": {
+        "id": 7,
+        "name": "Kathmandu-Naubise Ring Road Section",
+        "status": "caution",
+        "status_color": "#f39c12",
+        "condition_details": "Ring road expansion underway. Lane closures at multiple intersections. Dust and rough patches. Allow extra travel time.",
+        "last_updated": "2026-06-18",
+        "affected_by": "construction",
+        "alternative_route": "Use inner city routes",
+        "road_type": "Ring Road",
+        "length_km": 27,
+        "surface": "partially_paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.3200, 27.7000],
+          [85.3000, 27.6900],
+          [85.2700, 27.6800],
+          [85.2300, 27.6900],
+          [85.1900, 27.7100]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 8,
+      "properties": {
+        "id": 8,
+        "name": "Koshi Highway (Itahari-Hile)",
+        "status": "damaged",
+        "status_color": "#e67e22",
+        "condition_details": "Multiple landslide-damaged sections between Dharan and Dhankuta. One-lane passage possible with caution. Debris clearance in progress.",
+        "last_updated": "2026-06-19",
+        "affected_by": "landslide",
+        "alternative_route": "Air travel to Biratnagar then alternate mountain road",
+        "road_type": "National Highway",
+        "length_km": 130,
+        "surface": "partially_damaged"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [87.1600, 26.6600],
+          [87.2200, 26.8000],
+          [87.2800, 26.9500],
+          [87.3200, 27.0500],
+          [87.3500, 27.2000]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 9,
+      "properties": {
+        "id": 9,
+        "name": "Mechi Highway (Kakarbhitta-Birtamod)",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "Terai plains highway in good condition. Flat road, good visibility. Border trade route.",
+        "last_updated": "2026-06-15",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "National Highway",
+        "length_km": 30,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [88.1600, 26.6400],
+          [88.0500, 26.6500],
+          [87.9800, 26.6400],
+          [87.8900, 26.6500]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "properties": {
+        "id": 10,
+        "name": "Mahendra Highway East (Biratnagar-Janakpur)",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "Main Terai highway in good condition. Watch for animal crossings at night.",
+        "last_updated": "2026-06-16",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "East-West Highway",
+        "length_km": 160,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [87.2800, 26.4500],
+          [87.0000, 26.4700],
+          [86.7000, 26.5000],
+          [86.3000, 26.5500],
+          [85.9200, 26.7200]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 11,
+      "properties": {
+        "id": 11,
+        "name": "Mahendra Highway West (Butwal-Kohalpur) - Flood Section",
+        "status": "damaged",
+        "status_color": "#e67e22",
+        "condition_details": "Flood damage reported near Lamahi and Kohalpur areas. Two sections submerged. Heavy vehicle movement restricted. Repairs underway.",
+        "last_updated": "2026-06-19",
+        "affected_by": "flood",
+        "alternative_route": "Butwal to Bhairahawa old road temporarily",
+        "road_type": "East-West Highway",
+        "length_km": 80,
+        "surface": "flood_damaged"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [83.4500, 27.5000],
+          [83.1000, 27.7000],
+          [82.7500, 28.0000],
+          [82.0000, 28.2000],
+          [81.6000, 28.2000]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 12,
+      "properties": {
+        "id": 12,
+        "name": "Kathmandu-Bhaktapur Road",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "Main arterial road to Bhaktapur in good condition. Dual carriageway. Busy at peak hours.",
+        "last_updated": "2026-06-18",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "National Highway",
+        "length_km": 14,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.3656, 27.6710],
+          [85.4200, 27.6700],
+          [85.4700, 27.6800],
+          [85.5100, 27.6770]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 13,
+      "properties": {
+        "id": 13,
+        "name": "Tribhuvan Highway (Kathmandu-Birgunj)",
+        "status": "caution",
+        "status_color": "#f39c12",
+        "condition_details": "Old highway via Hetauda. Narrow winding mountain sections. Frequent potholes between Bhimphedi and Hetauda. Use Mahendra Highway via Narayanghat as alternative.",
+        "last_updated": "2026-06-17",
+        "affected_by": "normal",
+        "alternative_route": "Prithvi Hwy to Narayanghat then Mahendra Highway",
+        "road_type": "National Highway",
+        "length_km": 160,
+        "surface": "partially_paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.3200, 27.6600],
+          [85.1200, 27.5500],
+          [84.9800, 27.4000],
+          [84.8500, 27.2500],
+          [84.8600, 27.0100]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 14,
+      "properties": {
+        "id": 14,
+        "name": "Muktinath-Jomsom Road",
+        "status": "caution",
+        "status_color": "#f39c12",
+        "condition_details": "Gravel mountain road. Suitable only for 4WD vehicles and jeeps. Dusty in dry season, muddy in monsoon. River crossings require caution.",
+        "last_updated": "2026-06-16",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "Mountain Road",
+        "length_km": 15,
+        "surface": "gravel"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [83.8700, 28.8200],
+          [83.8200, 28.8000],
+          [83.7700, 28.7900]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 15,
+      "properties": {
+        "id": 15,
+        "name": "Pokhara-Beni-Jomsom Road",
+        "status": "damaged",
+        "status_color": "#e67e22",
+        "condition_details": "Landslide blocked section near Tatopani. Temporary clearance allows jeep passage during daylight only. Road improvement project ongoing.",
+        "last_updated": "2026-06-19",
+        "affected_by": "landslide",
+        "alternative_route": "Flight Pokhara to Jomsom (15 min)",
+        "road_type": "National Highway",
+        "length_km": 150,
+        "surface": "partially_paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [84.0100, 28.2100],
+          [83.9500, 28.3500],
+          [83.8800, 28.4800],
+          [83.8200, 28.5500],
+          [83.7700, 28.6800],
+          [83.7300, 28.7800]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 16,
+      "properties": {
+        "id": 16,
+        "name": "Surkhet-Jumla Mountain Road",
+        "status": "closed",
+        "status_color": "#c0392b",
+        "condition_details": "Road completely closed due to multiple landslides triggered by monsoon rains. No vehicle passage possible. Rescue teams on standby.",
+        "last_updated": "2026-06-20",
+        "affected_by": "landslide",
+        "alternative_route": "Nepal Airlines or Tara Air flights Surkhet to Jumla",
+        "road_type": "Mountain Road",
+        "length_km": 225,
+        "surface": "gravel_blocked"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [81.6200, 28.6000],
+          [81.8000, 28.7500],
+          [82.0000, 28.9000],
+          [82.0000, 29.2000],
+          [82.0000, 29.5000]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 17,
+      "properties": {
+        "id": 17,
+        "name": "Kathmandu-Langtang Road (Syabrubesi)",
+        "status": "caution",
+        "status_color": "#f39c12",
+        "condition_details": "Winding mountain road to Langtang valley. Narrow sections. Active landslide zones. Drive with extreme caution. 4WD recommended.",
+        "last_updated": "2026-06-18",
+        "affected_by": "landslide",
+        "alternative_route": null,
+        "road_type": "Mountain Road",
+        "length_km": 117,
+        "surface": "partially_paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.3200, 27.7500],
+          [85.3000, 27.9000],
+          [85.4000, 28.0200],
+          [85.5200, 28.2100]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 18,
+      "properties": {
+        "id": 18,
+        "name": "Birtamod-Taplejung Road",
+        "status": "damaged",
+        "status_color": "#e67e22",
+        "condition_details": "Several damaged sections due to ongoing monsoon. Road passable with 4WD during dry periods. Local check required before travel.",
+        "last_updated": "2026-06-19",
+        "affected_by": "flood",
+        "alternative_route": "Flight to Taplejung from Biratnagar",
+        "road_type": "Mountain Road",
+        "length_km": 170,
+        "surface": "partially_damaged"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [87.9800, 26.6400],
+          [87.9000, 26.8000],
+          [87.8000, 27.0000],
+          [87.7500, 27.2000],
+          [87.6700, 27.3500]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 19,
+      "properties": {
+        "id": 19,
+        "name": "Kathmandu Valley Ring Road",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "Main ring road operational. Expansion to 4-lane ongoing in northern sections. Normal traffic flow.",
+        "last_updated": "2026-06-18",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "Ring Road",
+        "length_km": 28,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.3200, 27.7300],
+          [85.3600, 27.7400],
+          [85.4000, 27.7200],
+          [85.4000, 27.6900],
+          [85.3600, 27.6600],
+          [85.3000, 27.6600],
+          [85.2700, 27.6900],
+          [85.2800, 27.7200],
+          [85.3200, 27.7300]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 20,
+      "properties": {
+        "id": 20,
+        "name": "Darchula-Khalanga Road",
+        "status": "closed",
+        "status_color": "#c0392b",
+        "condition_details": "Road closed due to major landslide near Api Himal foothills. Bridge washed out. Indefinite closure. Trek or helicopter only.",
+        "last_updated": "2026-06-18",
+        "affected_by": "landslide",
+        "alternative_route": "Flight to Darchula from Dhangadhi",
+        "road_type": "Mountain Road",
+        "length_km": 70,
+        "surface": "blocked"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.5900, 29.0000],
+          [80.5600, 29.3000],
+          [80.5500, 29.6000],
+          [80.5500, 29.8500]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 21,
+      "properties": {
+        "id": 21,
+        "name": "Pokhara-Lekhnath-Damauli",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "Smooth paved road connecting Pokhara to Damauli. Recently resurfaced. Good for tourist travel.",
+        "last_updated": "2026-06-15",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "National Highway",
+        "length_km": 55,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [84.0100, 28.2100],
+          [84.1000, 28.1500],
+          [84.2000, 28.0800],
+          [84.3000, 28.0200]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 22,
+      "properties": {
+        "id": 22,
+        "name": "Hetauda-Bharatpur Road",
+        "status": "good",
+        "status_color": "#27ae60",
+        "condition_details": "Well-maintained road connecting provincial capital Hetauda to Bharatpur. No restrictions.",
+        "last_updated": "2026-06-16",
+        "affected_by": "normal",
+        "alternative_route": null,
+        "road_type": "National Highway",
+        "length_km": 65,
+        "surface": "paved"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.0400, 27.4200],
+          [84.8500, 27.5500],
+          [84.6200, 27.6500],
+          [84.4300, 27.6800]
+        ]
+      }
+    }
+  ]
+}
