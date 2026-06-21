@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"name":"Himalayan View Hotel","type":"hotel","province":"Bagmati Province","district":"Kathmandu","phone":"01-4440001"},"geometry":{"type":"Point","coordinates":[85.324,27.717]}},
+{"type":"Feature","properties":{"name":"Thamel Garden Restaurant","type":"restaurant","province":"Bagmati Province","district":"Kathmandu","phone":"01-4412002"},"geometry":{"type":"Point","coordinates":[85.317,27.715]}},
+{"type":"Feature","properties":{"name":"Lakeside Lodge","type":"hotel","province":"Gandaki Province","district":"Kaski","phone":"061-560111"},"geometry":{"type":"Point","coordinates":[83.959,28.209]}},
+{"type":"Feature","properties":{"name":"Phewa Kitchen","type":"restaurant","province":"Gandaki Province","district":"Kaski","phone":"061-570222"},"geometry":{"type":"Point","coordinates":[83.962,28.213]}},
+{"type":"Feature","properties":{"name":"Chitwan Safari Inn","type":"hotel","province":"Bagmati Province","district":"Chitwan","phone":"056-520333"},"geometry":{"type":"Point","coordinates":[84.354,27.529]}},
+{"type":"Feature","properties":{"name":"Terai Taste Restaurant","type":"restaurant","province":"Bagmati Province","district":"Chitwan","phone":"056-520444"},"geometry":{"type":"Point","coordinates":[84.35,27.531]}},
+{"type":"Feature","properties":{"name":"Lumbini Peace Hotel","type":"hotel","province":"Lumbini Province","district":"Rupandehi","phone":"071-580555"},"geometry":{"type":"Point","coordinates":[83.275,27.483]}},
+{"type":"Feature","properties":{"name":"Maya Devi Cafe","type":"restaurant","province":"Lumbini Province","district":"Rupandehi","phone":"071-580666"},"geometry":{"type":"Point","coordinates":[83.278,27.485]}}
+]}

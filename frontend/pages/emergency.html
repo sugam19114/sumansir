@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emergency Assistance — Gantabya Sahayak</title>
+  <meta name="description" content="Find nearest hospitals, police stations, rescue centers, and helicopter pads in Nepal using your current GPS location."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.css"/>
+  <link rel="stylesheet" href="../styles/main.css"/>
+  <style>
+    .sos-btn { width:100%;background:linear-gradient(135deg,#c0392b,#e74c3c);color:white;border:none;border-radius:14px;padding:1rem;font-size:1.1rem;font-weight:800;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:0.05em;transition:all 0.3s;box-shadow:0 8px 25px rgba(231,76,60,0.4);margin-bottom:1rem; }
+    .sos-btn:hover { transform:translateY(-2px);box-shadow:0 12px 35px rgba(231,76,60,0.6); }
+    .loc-display { background:rgba(52,152,219,0.1);border:1px solid rgba(52,152,219,0.3);border-radius:10px;padding:0.6rem 0.9rem;font-size:0.8rem;color:#3498db;margin-bottom:0.75rem;display:none; }
+    .distance-info { position:absolute;top:1rem;left:50%;transform:translateX(-50%);background:rgba(10,26,10,0.92);border:1px solid var(--border);border-radius:10px;padding:0.5rem 1rem;font-size:0.82rem;z-index:10;backdrop-filter:blur(10px);white-space:nowrap;display:none; }
+    .pulse-dot { width:14px;height:14px;border-radius:50%;background:#3498db;border:3px solid white;animation:pulse 1.5s ease infinite;box-shadow:0 0 0 0 rgba(52,152,219,0.7); }
+    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(52,152,219,0.7)} 70%{box-shadow:0 0 0 10px rgba(52,152,219,0)} 100%{box-shadow:0 0 0 0 rgba(52,152,219,0)} }
+    .fac-type-icon { width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-size:1.1rem;flex-shrink:0; }
+  </style>
+</head>
+<body>
+<div class="app-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">🚑 Emergency Assistance</div>
+      <button class="sos-btn" id="sosBtn" onclick="activateSOS()">🆘 SOS — Find Nearest Help</button>
+      <div class="loc-display" id="locDisplay">📍 Location: <span id="locCoords">—</span></div>
+      <div class="filter-pills" id="typeFilter">
+        <button class="pill active" onclick="setTypeFilter('all',this)">All</button>
+        <button class="pill" onclick="setTypeFilter('hospital',this)" style="color:#e74c3c;border-color:#e74c3c">🏥 Hospital</button>
+        <button class="pill" onclick="setTypeFilter('health_post',this)" style="color:#2ecc71;border-color:#2ecc71">🏨 Health Post</button>
+        <button class="pill" onclick="setTypeFilter('police_station',this)" style="color:#3498db;border-color:#3498db">👮 Police</button>
+        <button class="pill" onclick="setTypeFilter('rescue_center',this)" style="color:#f39c12;border-color:#f39c12">🚁 Rescue</button>
+        <button class="pill" onclick="setTypeFilter('helicopter_pad',this)" style="color:#9b59b6;border-color:#9b59b6">🚁 Heli Pad</button>
+      </div>
+    </div>
+    <div class="sidebar-section" id="facilityList">
+      <div class="spinner"></div>
+      <div class="loading-text">Loading emergency facilities...</div>
+    </div>
+  </aside>
+
+  <div class="map-container">
+    <div id="map"></div>
+    <div class="distance-info" id="distInfo">📏 Nearest: <span id="nearestName">—</span> · <span id="nearestDist">—</span></div>
+
+    <div class="map-controls">
+      <button class="map-ctrl-btn" style="background:rgba(52,152,219,0.2);border-color:#3498db;color:#3498db" onclick="getUserLocation()">📍 My Location</button>
+      <div class="layer-panel" style="margin-top:0.5rem">
+        <div class="layer-title">🗂️ Layers</div>
+        <div class="layer-item">
+          <div class="layer-dot" style="background:#468432"></div>
+          <label>Province</label>
+          <label class="toggle-switch"><input type="checkbox" checked onchange="toggleLayer(map,'provinces-fill',this.checked);toggleLayer(map,'provinces-line',this.checked)"/><span class="toggle-slider"></span></label>
+        </div>
+        <div class="layer-item">
+          <div class="layer-dot" style="background:#a8d890"></div>
+          <label>Districts</label>
+          <label class="toggle-switch"><input type="checkbox" onchange="toggleLayer(map,'districts-line',this.checked)"/><span class="toggle-slider"></span></label>
+        </div>
+      </div>
+    </div>
+    <div class="basemap-toggle">
+      <div class="basemap-title">🗺️ Base Map</div>
+      <div class="basemap-options">
+        <button class="basemap-opt active" data-type="osm" onclick="switchBasemap(map,'osm')">Street</button>
+        <button class="basemap-opt" data-type="satellite" onclick="switchBasemap(map,'satellite')">Satellite</button>
+        <button class="basemap-opt" data-type="terrain" onclick="switchBasemap(map,'terrain')">Terrain</button>
+      </div>
+    </div>
+    <div class="map-info-overlay" style="bottom:5rem">
+      <strong>Facility Types</strong>
+      <div style="margin-top:0.4rem;font-size:0.75rem">
+        <div>🔴 Hospital · 🟢 Health Post</div>
+        <div>🔵 Police · 🟠 Rescue Center</div>
+        <div>🟣 Helicopter Pad · 🟤 Army Post</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+<script src="../js/app.js"></script>
+<script>
+Auth.requireLogin();
+injectNavbar('emergency');
+
+let map, allFacilities = [], userMarker = null, routeLine = null, activeFilter = 'all', userCoords = null;
+const FAC_COLORS = { hospital:'#e74c3c', health_post:'#2ecc71', police_station:'#3498db', rescue_center:'#f39c12', helicopter_pad:'#9b59b6', army_post:'#8e7b6d', evacuation_point:'#1abc9c' };
+const FAC_ICONS = { hospital:'🏥', health_post:'🏨', police_station:'👮', rescue_center:'🚑', helicopter_pad:'🚁', army_post:'⚔️', evacuation_point:'🚪' };
+
+map = createMap('map', [84.124, 28.394], 7);
+map.on('load', async () => { await addAdminLayers(map); addProvincePopup(map); await loadFacilities(); });
+
+async function loadFacilities() {
+  const data = await loadGeoJSON('/api/emergency', '../../data/emergency-facilities.geojson');
+  if (!data) return;
+  allFacilities = data.features || [];
+  renderFacilityMarkers(allFacilities);
+  renderFacilityList(allFacilities);
+}
+
+function renderFacilityMarkers(facilities) {
+  // Remove old markers if any
+  document.querySelectorAll('.fac-marker-el').forEach(e => e.remove());
+  facilities.forEach(f => {
+    const p = f.properties;
+    const coords = f.geometry.coordinates;
+    const color = FAC_COLORS[p.type] || '#999';
+    const el = document.createElement('div');
+    el.className = 'fac-marker-el';
+    el.style.cssText = `width:12px;height:12px;border-radius:50%;background:${color};border:2px solid white;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.4)`;
+    new maplibregl.Marker({ element: el }).setLngLat(coords)
+      .setPopup(new maplibregl.Popup({ offset:10 }).setHTML(`
+        <div class="popup-content">
+          <div class="popup-title">${FAC_ICONS[p.type]||'📍'} ${p.name}</div>
+          <div class="popup-type" style="color:${color}">${(p.type||'').replace('_',' ').toUpperCase()}</div>
+          <div class="popup-row"><span>District</span><strong>${p.district||'—'}</strong></div>
+          <div class="popup-row"><span>Province</span><strong>${p.province||'—'}</strong></div>
+          ${p.phone ? `<div class="popup-row"><span>Phone</span><strong>${p.phone}</strong></div>` : ''}
+          ${p.beds ? `<div class="popup-row"><span>Beds</span><strong>${p.beds}</strong></div>` : ''}
+          <div class="popup-row"><span>24/7</span><strong>${p.available_24h ? '✅ Yes' : '❌ No'}</strong></div>
+          ${userCoords ? `<div class="popup-row"><span>Distance</span><strong>${fmtDist(SpatialTools.calcDistance(userCoords,[coords[0],coords[1]]))}</strong></div>` : ''}
+          <div class="popup-actions">
+            ${p.phone ? `<button class="popup-btn popup-btn-primary" onclick="window.open('tel:${p.phone}')">📞 Call</button>` : ''}
+            <button class="popup-btn popup-btn-secondary" onclick="routeToFacility([${coords}])">🗺️ Route</button>
+          </div>
+        </div>`))
+      .addTo(map);
+  });
+}
+
+function renderFacilityList(facilities) {
+  const el = document.getElementById('facilityList');
+  if (!facilities.length) { el.innerHTML='<p class="text-muted" style="padding:1rem;text-align:center">No facilities found.</p>'; return; }
+  let sorted = [...facilities];
+  if (userCoords) {
+    sorted.sort((a,b) => {
+      const da = SpatialTools.calcDistance(userCoords, a.geometry.coordinates);
+      const db = SpatialTools.calcDistance(userCoords, b.geometry.coordinates);
+      return da - db;
+    });
+  }
+  el.innerHTML = `<div class="section-divider">Facilities (${facilities.length})</div>` +
+    sorted.slice(0,30).map(f => {
+      const p = f.properties;
+      const color = FAC_COLORS[p.type] || '#999';
+      const dist = userCoords ? ` · ${fmtDist(SpatialTools.calcDistance(userCoords, f.geometry.coordinates))}` : '';
+      return `<div class="info-card" onclick="flyTo(${f.geometry.coordinates})">
+        <div class="card-header">
+          <div class="fac-type-icon" style="background:${color}22">${FAC_ICONS[p.type]||'📍'}</div>
+          <div><div class="card-title">${p.name}</div><div class="card-subtitle">${p.district||''}${dist}</div></div>
+          <span class="status-badge" style="background:${color}22;color:${color};margin-left:auto">${(p.type||'').replace('_',' ')}</span>
+        </div>
+        ${p.phone ? `<div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.3rem">📞 ${p.phone}</div>` : ''}
+      </div>`;
+    }).join('');
+}
+
+function flyTo(coords) { map.flyTo({ center: coords, zoom: 13 }); }
+
+function getUserLocation() {
+  navigator.geolocation.getCurrentPosition(pos => {
+    userCoords = [pos.coords.longitude, pos.coords.latitude];
+    document.getElementById('locDisplay').style.display = 'block';
+    document.getElementById('locCoords').textContent = `${pos.coords.latitude.toFixed(4)}°N, ${pos.coords.longitude.toFixed(4)}°E`;
+
+    // User marker
+    if (userMarker) userMarker.remove();
+    const el = document.createElement('div');
+    el.className = 'pulse-dot';
+    userMarker = new maplibregl.Marker({ element: el }).setLngLat(userCoords).addTo(map);
+    map.flyTo({ center: userCoords, zoom: 11 });
+
+    // Show 10km buffer
+    const pt = turf.point(userCoords);
+    const buf = SpatialTools.createBuffer(pt, 10);
+    if (map.getSource('user-buffer')) { map.getSource('user-buffer').setData(buf); }
+    else {
+      map.addSource('user-buffer', { type:'geojson', data:buf });
+      map.addLayer({ id:'user-buffer-layer', type:'fill', source:'user-buffer', paint:{'fill-color':'#3498db','fill-opacity':0.08,'fill-outline-color':'#3498db'} });
+    }
+
+    // Find nearest (TURF spatial analysis)
+    const filteredForNearest = activeFilter === 'all' ? allFacilities :
+      allFacilities.filter(f => f.properties.type === activeFilter);
+    if (filteredForNearest.length) {
+      const points = { type:'FeatureCollection', features: filteredForNearest.filter(f=>f.geometry.type==='Point') };
+      const nearest = SpatialTools.findNearest(turf.point(userCoords), points);
+      if (nearest) {
+        const name = nearest.properties.name;
+        const dist = fmtDist(nearest.properties.distanceToPoint || SpatialTools.calcDistance(userCoords, nearest.geometry.coordinates));
+        document.getElementById('distInfo').style.display = 'block';
+        document.getElementById('nearestName').textContent = name;
+        document.getElementById('nearestDist').textContent = dist;
+      }
+    }
+    renderFacilityList(activeFilter==='all' ? allFacilities : allFacilities.filter(f=>f.properties.type===activeFilter));
+  }, () => alert('❌ Location access denied. Please enable GPS.'));
+}
+
+function activateSOS() {
+  const btn = document.getElementById('sosBtn');
+  btn.textContent = '📡 Locating you...';
+  btn.disabled = true;
+  navigator.geolocation.getCurrentPosition(async pos => {
+    userCoords = [pos.coords.longitude, pos.coords.latitude];
+    getUserLocation();
+    // Try API nearest search
+    const data = await API.get(`/api/emergency/nearest?lat=${pos.coords.latitude}&lng=${pos.coords.longitude}&type=hospital&limit=3`);
+    const nearest = data?.features?.[0]?.properties;
+    if (nearest) {
+      alert(`🏥 Nearest Hospital: ${nearest.name}\n📏 Distance: ${nearest.distance_km} km\n📞 Phone: ${nearest.phone || 'N/A'}\n\nStay calm — help is on the way.`);
+    } else {
+      alert('📍 Location found!\n\nNearest facilities shown on map.\nCall Nepal Emergency: 102 (Police) | 103 (Ambulance)');
+    }
+    btn.textContent = '🆘 SOS — Find Nearest Help';
+    btn.disabled = false;
+  }, () => {
+    alert('❌ Cannot access location. Dial:\n• Police: 100\n• Ambulance: 102\n• Fire: 101\n• Tourist Police: 1144');
+    btn.textContent = '🆘 SOS — Find Nearest Help';
+    btn.disabled = false;
+  });
+}
+
+function routeToFacility(coords) {
+  if (!userCoords) { alert('Enable location first'); return; }
+  const lineData = { type:'Feature', geometry:{ type:'LineString', coordinates:[userCoords, coords] }, properties:{} };
+  if (map.getSource('route-line')) { map.getSource('route-line').setData(lineData); }
+  else {
+    map.addSource('route-line', { type:'geojson', data:lineData });
+    map.addLayer({ id:'route-line-layer', type:'line', source:'route-line', paint:{'line-color':'#3498db','line-width':3,'line-dasharray':[2,2],'line-opacity':0.8} });
+  }
+  const dist = SpatialTools.calcDistance(userCoords, coords);
+  map.fitBounds([userCoords, coords], { padding:80 });
+  alert(`📏 Straight-line distance: ${fmtDist(dist)}\n(Actual road distance may differ)`);
+}
+
+function setTypeFilter(type, btn) {
+  document.querySelectorAll('#typeFilter .pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = type;
+  const filtered = type==='all' ? allFacilities : allFacilities.filter(f=>f.properties.type===type);
+  renderFacilityMarkers(filtered);
+  renderFacilityList(filtered);
+}
+</script>
+</body>
+</html>

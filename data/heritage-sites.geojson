@@ -1,0 +1,510 @@
+{
+  "type": "FeatureCollection",
+  "name": "Nepal Heritage Sites",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "id": 1,
+        "name": "Pashupatinath Temple",
+        "type": "ancient_temple",
+        "district": "Kathmandu",
+        "province": "Bagmati Province",
+        "established_year": 400,
+        "unesco_listed": true,
+        "description": "The holiest Hindu temple in Nepal dedicated to Lord Shiva. Built along the banks of sacred Bagmati River where cremations take place. The temple complex contains hundreds of smaller shrines, ashrams, and meditation centers.",
+        "cultural_importance": "Most sacred Hindu pilgrimage site in Nepal; listed as UNESCO World Heritage Site as part of Kathmandu Valley. One of the most important Shiva temples in the world.",
+        "local_stories": "Legend says Shiva and Parvati came here disguised as deer. The Pashupati Nath lingam is said to be self-manifested (swayambhu) and extraordinarily sacred.",
+        "visitor_info": {
+          "timings": "4:00 AM - 9:00 PM (outer complex); inner sanctum Hindus only",
+          "entry_fee_npr": 1000,
+          "dress_code": "Hindus only in inner sanctum; respectful attire for all",
+          "best_time": "Morning aarti (5:30 AM) or evening aarti (6:00 PM)"
+        },
+        "nearby_facilities": ["parking", "guides", "souvenir_shops", "restaurants", "ATM"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.3486, 27.7106] }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+        "id": 2,
+        "name": "Boudhanath Stupa",
+        "type": "monastery",
+        "district": "Kathmandu",
+        "province": "Bagmati Province",
+        "established_year": 600,
+        "unesco_listed": true,
+        "description": "One of the largest stupas in the world and the holiest Tibetan Buddhist site outside Tibet. The mandala-shaped stupa has the all-seeing eyes of Buddha painted on all four sides. Surrounded by over 50 Tibetan monasteries.",
+        "cultural_importance": "UNESCO World Heritage Site; major center for Tibetan Buddhist culture in exile. Significant pilgrimage destination for Tibetan Buddhists worldwide.",
+        "local_stories": "Stupa was built by a poultry woman named Kangma who requested the land to build it and received only as much land as could be covered by a buffalo skin — she cut it into strips and covered the entire hillock.",
+        "visitor_info": {
+          "timings": "6:00 AM - 8:00 PM daily",
+          "entry_fee_npr": 400,
+          "dress_code": "Modest attire; remove shoes at inner stupa areas",
+          "best_time": "Early morning circumambulation with pilgrims, or evening"
+        },
+        "nearby_facilities": ["restaurants", "cafes", "souvenir_shops", "guesthouses", "internet"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.3619, 27.7214] }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+        "id": 3,
+        "name": "Swayambhunath (Monkey Temple)",
+        "type": "religious_site",
+        "district": "Kathmandu",
+        "province": "Bagmati Province",
+        "established_year": -300,
+        "unesco_listed": true,
+        "description": "Ancient religious complex atop a hill with a prominent stupa visible from across Kathmandu. Sacred to both Hindus and Buddhists. The complex contains shrines, monasteries, and the eternal flame. Monkeys are considered sacred here.",
+        "cultural_importance": "UNESCO World Heritage Site; one of the oldest religious sites in Nepal, predating recorded history. Swayambhu means 'self-created' — the lotus flower that became the hill emerged from a sacred lake.",
+        "local_stories": "According to Swayambhu Purana, the valley was once a lake. Bodhisattva Manjushri drained the lake with his sword at Chovar gorge so people could live. The lotus on the lake's center became the hillock.",
+        "visitor_info": {
+          "timings": "Open 24 hours (best visited 6 AM - 6 PM)",
+          "entry_fee_npr": 200,
+          "dress_code": "Modest attire; cover shoulders and knees",
+          "best_time": "Sunrise for golden light on the stupa"
+        },
+        "nearby_facilities": ["restaurants", "souvenir_shops", "guides", "parking"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.2906, 27.7147] }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "properties": {
+        "id": 4,
+        "name": "Lumbini Maya Devi Temple",
+        "type": "UNESCO_world_heritage",
+        "district": "Rupandehi",
+        "province": "Lumbini Province",
+        "established_year": -623,
+        "unesco_listed": true,
+        "description": "Birthplace of Siddhartha Gautama (Buddha) in 563 BCE. The Maya Devi Temple marks the exact spot. The sacred garden contains the Ashoka Pillar (3rd century BCE), sacred pool, and numerous international monastery buildings.",
+        "cultural_importance": "UNESCO World Heritage Site and one of the holiest places in Buddhism. Pilgrimage destination for 500 million Buddhists worldwide. Emperor Ashoka visited in 249 BCE and erected the pillar that still stands.",
+        "local_stories": "Queen Maya Devi was returning to her parents' home when she stopped at the Lumbini garden. Holding onto a tree branch, she gave birth to Siddhartha. The baby immediately took seven steps and declared 'I shall be the liberator'.",
+        "visitor_info": {
+          "timings": "6:00 AM - 5:00 PM daily",
+          "entry_fee_npr": 200,
+          "dress_code": "Modest attire mandatory; remove footwear in sacred garden",
+          "best_time": "Buddha Purnima full moon day in May; October-March"
+        },
+        "nearby_facilities": ["restaurants", "hotels", "guides", "museum", "meditation_centers", "international_monasteries"]
+      },
+      "geometry": { "type": "Point", "coordinates": [83.2767, 27.4833] }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "properties": {
+        "id": 5,
+        "name": "Bhaktapur Durbar Square",
+        "type": "historic_palace",
+        "district": "Bhaktapur",
+        "province": "Bagmati Province",
+        "established_year": 1200,
+        "unesco_listed": true,
+        "description": "The most well-preserved of Nepal's three Durbar Squares. Former royal palace complex of the Malla kings with 55-window palace, Lion Gate, Golden Gate, Vatsala Temple and Nyatapola Temple. Living museum of medieval Newar architecture.",
+        "cultural_importance": "UNESCO World Heritage Site; center of traditional Newari art, culture, and festivals. Bhaktapur's pottery, wood carving and thangka painting traditions remain alive here.",
+        "local_stories": "King Yaksha Malla's sons divided the Kathmandu Valley into three kingdoms and each built a durbar square to outdo the others. Bhaktapur's craftsmen were so skilled that artisans were sent to Tibet to build monasteries.",
+        "visitor_info": {
+          "timings": "Open daily; best 6 AM - 6 PM",
+          "entry_fee_npr": 1500,
+          "dress_code": "Casual but modest",
+          "best_time": "Bisket Jatra festival (April); Indra Jatra"
+        },
+        "nearby_facilities": ["restaurants", "guesthouses", "guides", "souvenir_shops", "museum", "pottery_square"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.4285, 27.6723] }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "properties": {
+        "id": 6,
+        "name": "Patan Durbar Square (Lalitpur)",
+        "type": "historic_palace",
+        "district": "Lalitpur",
+        "province": "Bagmati Province",
+        "established_year": 1200,
+        "unesco_listed": true,
+        "description": "Most artistically rich Durbar Square in Nepal. Krishna Mandir (stone temple, 1636), Royal Bath, Patan Museum (one of Asia's best museum), Golden Temple, and exquisite metalwork throughout. Built during Malla dynasty.",
+        "cultural_importance": "UNESCO World Heritage Site; Patan (Lalitpur) is known as the 'City of Artists.' The finest examples of Newari architecture and sculpture are found here. Metalwork and stonework traditions continue.",
+        "local_stories": "Patan is said to have been established by Emperor Ashoka who erected four stupas at the four cardinal directions. The city has been a Buddhist center for over two millennia.",
+        "visitor_info": {
+          "timings": "Open daily 10 AM - 5 PM (museum); square 24 hrs",
+          "entry_fee_npr": 1000,
+          "dress_code": "Casual but modest",
+          "best_time": "Ratha Yatra of Rato Machhindranath (May-June)"
+        },
+        "nearby_facilities": ["restaurants", "cafes", "souvenir_shops", "museum", "guides", "ATM"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.3247, 27.6722] }
+    },
+    {
+      "type": "Feature",
+      "id": 7,
+      "properties": {
+        "id": 7,
+        "name": "Kathmandu Durbar Square (Hanuman Dhoka)",
+        "type": "historic_palace",
+        "district": "Kathmandu",
+        "province": "Bagmati Province",
+        "established_year": 1200,
+        "unesco_listed": true,
+        "description": "The ancient royal palace complex in the heart of old Kathmandu. Includes Kumari Ghar (living goddess house), Taleju Temple, Kasthamandap (Nepal's name origin), and numerous temples. Severely damaged in 2015 earthquake; restoration ongoing.",
+        "cultural_importance": "UNESCO World Heritage Site; spiritual and historical heart of Kathmandu. Nepal's name 'Kathmandu' derived from Kasthamandap — a three-storey pagoda built from a single tree.",
+        "local_stories": "The Kumari (living goddess) resides in Kumari Ghar. She is a young girl chosen based on 32 physical perfections who is believed to be an incarnation of goddess Durga. Seeing the Kumari in the window brings good luck.",
+        "visitor_info": {
+          "timings": "Open daily 10 AM - 5 PM (museum sections)",
+          "entry_fee_npr": 1000,
+          "dress_code": "No shorts; respectful attire",
+          "best_time": "Indra Jatra festival (August/September); morning"
+        },
+        "nearby_facilities": ["restaurants", "souvenir_shops", "guides", "ATM", "guesthouses"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.3061, 27.7044] }
+    },
+    {
+      "type": "Feature",
+      "id": 8,
+      "properties": {
+        "id": 8,
+        "name": "Changu Narayan Temple",
+        "type": "ancient_temple",
+        "district": "Bhaktapur",
+        "province": "Bagmati Province",
+        "established_year": 323,
+        "unesco_listed": true,
+        "description": "Nepal's oldest temple dedicated to Lord Vishnu, dating to the 4th century. Features the finest stone, metal and wood carvings of the Licchavi period. Set atop a wooded hilltop with valley views.",
+        "cultural_importance": "UNESCO World Heritage Site; holds Nepal's oldest dated stone inscription (464 CE). The temple contains some of the finest examples of ancient Nepalese art and architecture.",
+        "local_stories": "The temple marks the site where Garuda (divine eagle, mount of Vishnu) caught a snake here. The famous Changu Narayan image shows Vishnu standing on Garuda's shoulders with a serpent — a 6th century masterpiece.",
+        "visitor_info": {
+          "timings": "7:00 AM - 7:00 PM daily",
+          "entry_fee_npr": 300,
+          "dress_code": "Modest attire; remove shoes at temple",
+          "best_time": "Early morning or late afternoon; trek from Bhaktapur"
+        },
+        "nearby_facilities": ["guides", "souvenir_shops", "basic_restaurants", "museum"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.4367, 27.7194] }
+    },
+    {
+      "type": "Feature",
+      "id": 9,
+      "properties": {
+        "id": 9,
+        "name": "Manakamana Temple",
+        "type": "religious_site",
+        "district": "Gorkha",
+        "province": "Gandaki Province",
+        "established_year": 1600,
+        "unesco_listed": false,
+        "description": "Famous temple of goddess Manakamana ('Heart's Desire') perched atop a hill 1302m high. Accessed by Asia's first cable car. Devotees offer animal sacrifices believing wishes are granted. One of Nepal's most visited temples.",
+        "cultural_importance": "Most popular Hindu pilgrimage outside Kathmandu. The goddess is believed to grant all wishes (mana = heart, kamana = wishes). Millions visit annually.",
+        "local_stories": "The goddess was worshipped secretly by a queen. When the secret was revealed to the king through a divine sign, the king built the temple. The image is said to have appeared itself from the earth.",
+        "visitor_info": {
+          "timings": "Cable car: 8 AM - 6 PM; closed Tuesdays",
+          "entry_fee_npr": 1130,
+          "dress_code": "Traditional attire preferred; no leather items inside",
+          "best_time": "Dashain and Tihar festival periods"
+        },
+        "nearby_facilities": ["cable_car", "restaurants", "parking", "souvenir_shops"]
+      },
+      "geometry": { "type": "Point", "coordinates": [84.5236, 27.9617] }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "properties": {
+        "id": 10,
+        "name": "Muktinath Temple",
+        "type": "religious_site",
+        "district": "Mustang",
+        "province": "Gandaki Province",
+        "established_year": 800,
+        "unesco_listed": false,
+        "description": "Sacred site at 3710m altitude revered equally by Hindus and Buddhists. The Vishnu temple has 108 waterspouts, an eternal flame of natural gas, and a Buddhist gompa. Surrounded by Trans-Himalayan landscape.",
+        "cultural_importance": "One of the 108 Divya Desam Vishnu temples for Hindus, and an important Bon and Buddhist pilgrimage site. The eternal flame (natural gas fire burning through water) is considered miraculous.",
+        "local_stories": "The Shaligram fossils (ammonites) found in Kaligandaki river nearby are worshipped as natural Vishnu icons. Pilgrims take ritual baths in all 108 freezing waterspouts for purification.",
+        "visitor_info": {
+          "timings": "6:00 AM - 6:00 PM daily",
+          "entry_fee_npr": 0,
+          "dress_code": "Warm clothing essential; respectful attire",
+          "best_time": "October-November for Vijaya Dashami pilgrimage"
+        },
+        "nearby_facilities": ["guesthouses", "restaurants", "horse_rental", "basic_medical"]
+      },
+      "geometry": { "type": "Point", "coordinates": [83.8717, 28.8153] }
+    },
+    {
+      "type": "Feature",
+      "id": 11,
+      "properties": {
+        "id": 11,
+        "name": "Gorkha Durbar Palace",
+        "type": "historic_palace",
+        "district": "Gorkha",
+        "province": "Gandaki Province",
+        "established_year": 1400,
+        "unesco_listed": false,
+        "description": "The ancestral palace of Prithvi Narayan Shah who unified Nepal. Dramatically set on a cliff overlooking Gorkha bazaar with Himalayan views including Manaslu. The palace and Gorakhkali temple within are of immense national importance.",
+        "cultural_importance": "Birthplace of Prithvi Narayan Shah, the founder of modern Nepal. The Gorakhkali temple inside is extremely sacred — only Hindus allowed inside the inner sanctum. Centre of Nepal's unification history.",
+        "local_stories": "Prithvi Narayan Shah was born here in 1723 and received divine blessing before his famous campaigns to unify 52 kingdoms into modern Nepal. Gorkha soldiers (Gurkhas) world-renowned for their bravery trace their identity to this place.",
+        "visitor_info": {
+          "timings": "9:00 AM - 4:00 PM (closed Tuesdays)",
+          "entry_fee_npr": 100,
+          "dress_code": "Traditional dress preferred; no leather inside temple",
+          "best_time": "Dashain festival; clear winter days for mountain views"
+        },
+        "nearby_facilities": ["guides", "restaurants", "guesthouses", "museum"]
+      },
+      "geometry": { "type": "Point", "coordinates": [84.6300, 28.0000] }
+    },
+    {
+      "type": "Feature",
+      "id": 12,
+      "properties": {
+        "id": 12,
+        "name": "Ranighat Palace (Deval)",
+        "type": "historic_palace",
+        "district": "Palpa",
+        "province": "Lumbini Province",
+        "established_year": 1896,
+        "unesco_listed": false,
+        "description": "A stunning neo-classical palace ruins set amid the jungle beside the Kali Gandaki river. Built by the powerful Palpa governor for his beloved wife. Called the 'Taj Mahal of Nepal'. Reachable by 2-hour trek from Tansen or boat.",
+        "cultural_importance": "Finest example of colonial-era palace architecture in Nepal. The abandoned palace with intricate carvings and riverine setting is extraordinarily atmospheric. Currently under restoration.",
+        "local_stories": "Governor Khadga Shamsher built the palace to console his grief after his beloved wife's death. The palace was abandoned after political changes and remains hauntingly beautiful in its jungle setting.",
+        "visitor_info": {
+          "timings": "Daylight hours; no formal closing",
+          "entry_fee_npr": 0,
+          "dress_code": "Comfortable trekking clothes",
+          "best_time": "October-March; 2-hour trek from Tansen or boat from Ramdi"
+        },
+        "nearby_facilities": ["guide_recommended", "basic_refreshments_nearby"]
+      },
+      "geometry": { "type": "Point", "coordinates": [83.5600, 27.8167] }
+    },
+    {
+      "type": "Feature",
+      "id": 13,
+      "properties": {
+        "id": 13,
+        "name": "Lo Manthang Palace (Upper Mustang)",
+        "type": "historic_palace",
+        "district": "Mustang",
+        "province": "Gandaki Province",
+        "established_year": 1380,
+        "unesco_listed": false,
+        "description": "The walled capital of the ancient Mustang Kingdom, one of the last Tibetan-style kingdoms. The four-storey royal palace within the walled city and the Lo Gekar Monastery are extraordinary cultural treasures.",
+        "cultural_importance": "Last surviving medieval Tibetan Buddhist kingdom. Restricted area preserving Tibetan culture lost in Tibet itself. Ancient cave paintings, thangkas, and manuscripts of immense historical value.",
+        "local_stories": "The kingdom of Lo (Mustang) remained an independent principality under Nepal sovereignty until 2008. The last king, Jigme Dorje Palbar Bista, allowed access to the kingdom only in 1992. Ancient cave dwellings pre-date 1000 BCE.",
+        "visitor_info": {
+          "timings": "Accessible with Restricted Area Permit only",
+          "entry_fee_npr": 0,
+          "dress_code": "Warm layered clothing; respectful attire in monasteries",
+          "best_time": "May (Tiji Festival); October-November"
+        },
+        "nearby_facilities": ["guesthouses", "local_restaurants", "guide_mandatory"]
+      },
+      "geometry": { "type": "Point", "coordinates": [83.9583, 29.1833] }
+    },
+    {
+      "type": "Feature",
+      "id": 14,
+      "properties": {
+        "id": 14,
+        "name": "Kopan Monastery",
+        "type": "monastery",
+        "district": "Kathmandu",
+        "province": "Bagmati Province",
+        "established_year": 1969,
+        "unesco_listed": false,
+        "description": "World-famous Tibetan Buddhist monastery on a hilltop overlooking Kathmandu Valley. Internationally renowned for meditation courses and Buddhist teachings. Over 360 monks resident. Stunning views of Boudhanath and mountains.",
+        "cultural_importance": "One of the most important centers of Tibetan Buddhism outside Tibet. Monthly and annual meditation courses attract thousands of international students. Part of Foundation for the Preservation of the Mahayana Tradition.",
+        "local_stories": "Founded by Lama Thubten Yeshe and Lama Zopa Rinpoche, Kopan started giving meditation courses in 1971 and has trained thousands of Western Buddhist practitioners. Its annual November course is legendary.",
+        "visitor_info": {
+          "timings": "9:00 AM - 5:00 PM; meditation courses require registration",
+          "entry_fee_npr": 0,
+          "dress_code": "Modest attire; covering shoulders and knees",
+          "best_time": "November (annual meditation course); year-round"
+        },
+        "nearby_facilities": ["retreat_center", "library", "vegetarian_restaurant", "accommodation_for_students"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.3750, 27.7383] }
+    },
+    {
+      "type": "Feature",
+      "id": 15,
+      "properties": {
+        "id": 15,
+        "name": "Tilaurakot Archaeological Site",
+        "type": "UNESCO_world_heritage",
+        "district": "Kapilvastu",
+        "province": "Lumbini Province",
+        "established_year": -600,
+        "unesco_listed": false,
+        "description": "Archaeological site believed to be the ancient palace city of Kapilavastu where young prince Siddhartha (future Buddha) lived for 29 years. Excavations reveal palace walls, gates, and early urban structures.",
+        "cultural_importance": "Potential UNESCO listing pending. The site connects directly to the life of Siddhartha Gautama Buddha. Finding of Eastern and Western gateways matching descriptions in Buddhist texts strengthens authenticity.",
+        "local_stories": "From this palace city, Siddhartha first witnessed old age, disease, and death — the Three Signs — and finally a serene monk. This inspired his Great Renunciation when he left the palace at night on his horse Kanthaka.",
+        "visitor_info": {
+          "timings": "8:00 AM - 5:00 PM daily",
+          "entry_fee_npr": 150,
+          "dress_code": "Casual",
+          "best_time": "October-March"
+        },
+        "nearby_facilities": ["museum", "guides", "parking", "basic_restaurants_nearby"]
+      },
+      "geometry": { "type": "Point", "coordinates": [82.9667, 27.5667] }
+    },
+    {
+      "type": "Feature",
+      "id": 16,
+      "properties": {
+        "id": 16,
+        "name": "Dolpo Crystal Mountain Bon Monastery",
+        "type": "monastery",
+        "district": "Dolpa",
+        "province": "Karnali Province",
+        "established_year": 1100,
+        "unesco_listed": false,
+        "description": "Ancient Bon monastery in remote Dolpo district, one of the most isolated places on earth. Shey Gompa is surrounded by the Crystal Mountain — a sacred Bon pilgrimage circumambulation site. Featured in Peter Matthiessen's 'The Snow Leopard'.",
+        "cultural_importance": "One of the most important Bon Buddhist religious sites. The area preserves pre-Buddhist Tibetan Bon traditions. Extraordinarily rare cultural landscape barely touched by modernity.",
+        "local_stories": "The Crystal Mountain is circumambulated by Bon pilgrims every 12 years during the Year of the Snow Lion. Peter Matthiessen's literary pilgrimage made Shey Gompa world-famous among spiritual seekers.",
+        "visitor_info": {
+          "timings": "Accessible with restricted area permit; summer months only",
+          "entry_fee_npr": 0,
+          "dress_code": "Warm expedition clothing",
+          "best_time": "August-September (coincides with Shey Festival every 12 years)"
+        },
+        "nearby_facilities": ["camping", "basic_provisions_in_nearby_village"]
+      },
+      "geometry": { "type": "Point", "coordinates": [83.0767, 29.2183] }
+    },
+    {
+      "type": "Feature",
+      "id": 17,
+      "properties": {
+        "id": 17,
+        "name": "Swyambhu National Museum",
+        "type": "museum",
+        "district": "Kathmandu",
+        "province": "Bagmati Province",
+        "established_year": 1928,
+        "unesco_listed": false,
+        "description": "Nepal's national museum near Swayambhunath. Houses ancient art, sculptures, coins, weapons, royal possessions, and natural history collections. Best place to understand Nepal's history and cultural evolution.",
+        "cultural_importance": "National repository of Nepal's cultural treasures spanning from Licchavi period to modern era. Includes important royal weapons, thangkas, and historic artifacts.",
+        "local_stories": "Many artifacts were collected by Chandra Shamsher Rana from royal palaces and archaeological sites in the early 20th century. Museum holds thousands of pieces not yet on public display.",
+        "visitor_info": {
+          "timings": "10:00 AM - 5:00 PM; closed Tuesdays",
+          "entry_fee_npr": 150,
+          "dress_code": "Casual",
+          "best_time": "Weekday mornings (less crowded)"
+        },
+        "nearby_facilities": ["parking", "guides", "souvenir_shop"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.2942, 27.7133] }
+    },
+    {
+      "type": "Feature",
+      "id": 18,
+      "properties": {
+        "id": 18,
+        "name": "Rani Mahal (Palpa)",
+        "type": "historic_palace",
+        "district": "Palpa",
+        "province": "Lumbini Province",
+        "established_year": 1893,
+        "unesco_listed": false,
+        "description": "Elegant palace of the Palpa royal family perched above the Kali Gandaki river. Classic Newari-Colonial fusion architecture with beautiful woodwork. Panoramic river valley views.",
+        "cultural_importance": "Important example of late Rana period architecture outside Kathmandu. Part of Tansen's rich historical heritage as former capital of Palpa kingdom.",
+        "local_stories": "The palace was built for the wives of the Palpa ruling family. Tansen/Palpa was the most powerful local kingdom before unification and this palace reflects that era of relative independence.",
+        "visitor_info": {
+          "timings": "10:00 AM - 5:00 PM",
+          "entry_fee_npr": 100,
+          "dress_code": "Casual",
+          "best_time": "October-March; pair with Tansen bazaar walk"
+        },
+        "nearby_facilities": ["guides", "restaurants_in_tansen", "guesthouses"]
+      },
+      "geometry": { "type": "Point", "coordinates": [83.5472, 27.8639] }
+    },
+    {
+      "type": "Feature",
+      "id": 19,
+      "properties": {
+        "id": 19,
+        "name": "Thimi Traditional Pottery Town",
+        "type": "national_heritage",
+        "district": "Bhaktapur",
+        "province": "Bagmati Province",
+        "established_year": 900,
+        "unesco_listed": false,
+        "description": "Living Newari town between Kathmandu and Bhaktapur famous for traditional pottery and papier-mâché mask making. Potters still use ancient kick-wheel techniques. Masks made here used in Kathmandu Valley festivals.",
+        "cultural_importance": "One of Nepal's most important centers of traditional craft. The Bisket Jatra of Thimi is one of the most spectacular festivals in Nepal (April). Living cultural heritage.",
+        "local_stories": "The masks of Thimi are used in major festivals throughout the Kathmandu Valley. The name Thimi comes from 'timi' meaning 'you are capable people' — a compliment from Bhaktapur royals to the artisans.",
+        "visitor_info": {
+          "timings": "Open throughout the day; workshops active",
+          "entry_fee_npr": 0,
+          "dress_code": "Casual",
+          "best_time": "Bisket Jatra (April); pottery tours any time"
+        },
+        "nearby_facilities": ["craft_workshops", "local_restaurants", "pottery_market"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.3892, 27.6789] }
+    },
+    {
+      "type": "Feature",
+      "id": 20,
+      "properties": {
+        "id": 20,
+        "name": "Kirtipur Chilancho Stupa",
+        "type": "religious_site",
+        "district": "Kathmandu",
+        "province": "Bagmati Province",
+        "established_year": 1200,
+        "unesco_listed": false,
+        "description": "Ancient fortified town of Kirtipur with its famous Chilancho Stupa and Uma Maheshwar temple. The town fiercely resisted Prithvi Narayan Shah's armies and suffered severe punishment. Quiet and photogenic Newari town.",
+        "cultural_importance": "Important historic site marking Prithvi Narayan Shah's unification wars. The Chilancho Stupa is one of Nepal's oldest Buddhist monuments. Traditional Newari textile weaving still practiced here.",
+        "local_stories": "When Kirtipur finally fell after multiple sieges, Prithvi Narayan Shah ordered the cutting of noses and lips of the male inhabitants (sparing those who played wind instruments). The town still bears resentment in local memory.",
+        "visitor_info": {
+          "timings": "Open daily; daytime recommended",
+          "entry_fee_npr": 0,
+          "dress_code": "Casual but respectful at temples",
+          "best_time": "Year-round; festivals in October"
+        },
+        "nearby_facilities": ["local_restaurants", "views_of_kathmandu_valley"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.2783, 27.6767] }
+    },
+    {
+      "type": "Feature",
+      "id": 21,
+      "properties": {
+        "id": 21,
+        "name": "Gosainkunda Lake Temple Complex",
+        "type": "religious_site",
+        "district": "Rasuwa",
+        "province": "Bagmati Province",
+        "established_year": 500,
+        "unesco_listed": false,
+        "description": "Sacred alpine lake complex at 4380m with a small Shiva temple on an island. During Janai Purnima (July-August), thousands of Hindu pilgrims trek to bathe in the sacred waters. Remote and spectacularly beautiful.",
+        "cultural_importance": "One of Nepal's holiest Hindu pilgrimage sites. The Janai Purnima pilgrimage to Gosaikunda is one of the most arduous and spiritually significant in Nepal.",
+        "local_stories": "Lord Shiva struck the earth with his trident to draw water from this spot, creating the lake. The water from Gosaikunda is believed to flow underground and emerge at Kumbheshwar temple in Patan — supported by similar water temperature and color.",
+        "visitor_info": {
+          "timings": "Accessible May-October; closed in winter snow",
+          "entry_fee_npr": 3000,
+          "dress_code": "Warm layered clothing; puja attire for festival",
+          "best_time": "Janai Purnima full moon (July-August) for pilgrimage atmosphere"
+        },
+        "nearby_facilities": ["tea_houses_seasonal", "camping", "basic_supplies_at_lauribina"]
+      },
+      "geometry": { "type": "Point", "coordinates": [85.4181, 28.0750] }
+    }
+  ]
+}

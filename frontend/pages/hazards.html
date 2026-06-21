@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Risk & Hazard Map — Gantabya Sahayak</title>
+  <meta name="description" content="Nepal tourism hazard and risk mapping. Landslide, flood, avalanche, earthquake, and wildlife risk zones."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.css"/>
+  <link rel="stylesheet" href="../styles/main.css"/>
+  <style>
+    .risk-summary { display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.75rem; }
+    .risk-stat { background:var(--bg-elevated);border:1px solid var(--border);border-radius:8px;padding:0.6rem;text-align:center; }
+    .risk-stat-num { font-size:1.4rem;font-weight:700; }
+    .risk-stat-label { font-size:0.7rem;color:var(--text-muted);margin-top:0.1rem; }
+    .check-risk-btn { width:100%;background:rgba(142,68,173,0.2);border:1px solid rgba(142,68,173,0.4);color:#9b59b6;border-radius:10px;padding:0.7rem;font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.3s;margin-bottom:0.75rem; }
+    .check-risk-btn:hover { background:rgba(142,68,173,0.35); }
+    .risk-result { background:rgba(142,68,173,0.1);border:1px solid rgba(142,68,173,0.3);border-radius:10px;padding:0.75rem;margin-bottom:0.75rem;display:none; }
+    .risk-result.show { display:block; }
+  </style>
+</head>
+<body>
+<div class="app-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">⚠️ Risk & Hazard Map</div>
+      <button class="check-risk-btn" onclick="checkLocationRisk()">📍 Check My Location Risk</button>
+      <div class="risk-result" id="riskResult"></div>
+      <div class="section-divider">Hazard Type</div>
+      <div class="filter-pills" id="hazardTypeFilter" style="flex-wrap:wrap">
+        <button class="pill active" onclick="setHazardFilter('all',this)">All</button>
+        <button class="pill" onclick="setHazardFilter('landslide_susceptibility',this)" style="color:#e74c3c;border-color:#e74c3c">⛰️ Landslide</button>
+        <button class="pill" onclick="setHazardFilter('flood_zone',this)" style="color:#3498db;border-color:#3498db">🌊 Flood</button>
+        <button class="pill" onclick="setHazardFilter('avalanche_area',this)" style="color:#9b59b6;border-color:#9b59b6">🌨️ Avalanche</button>
+        <button class="pill" onclick="setHazardFilter('rockfall_zone',this)" style="color:#e67e22;border-color:#e67e22">🪨 Rockfall</button>
+        <button class="pill" onclick="setHazardFilter('earthquake_affected',this)" style="color:#8e44ad;border-color:#8e44ad">🌍 Earthquake</button>
+        <button class="pill" onclick="setHazardFilter('altitude_sickness',this)" style="color:#1abc9c;border-color:#1abc9c">🏔️ Altitude</button>
+        <button class="pill" onclick="setHazardFilter('wildlife_risk',this)" style="color:#f39c12;border-color:#f39c12">🐯 Wildlife</button>
+        <button class="pill" onclick="setHazardFilter('leech_forest',this)" style="color:#27ae60;border-color:#27ae60">🌿 Leech</button>
+      </div>
+      <div class="section-divider">Risk Level</div>
+      <div class="filter-pills" id="riskLevelFilter">
+        <button class="pill active" onclick="setRiskFilter('all',this)">All</button>
+        <button class="pill" onclick="setRiskFilter('extreme',this)" style="color:#8e44ad">🟣 Extreme</button>
+        <button class="pill" onclick="setRiskFilter('high',this)" style="color:#e74c3c">🔴 High</button>
+        <button class="pill" onclick="setRiskFilter('medium',this)" style="color:#f39c12">🟡 Medium</button>
+        <button class="pill" onclick="setRiskFilter('low',this)" style="color:#2ecc71">🟢 Low</button>
+      </div>
+    </div>
+    <div class="sidebar-section" id="hazardList">
+      <div class="spinner"></div>
+      <div class="loading-text">Loading hazard zones...</div>
+    </div>
+  </aside>
+
+  <div class="map-container">
+    <div id="map"></div>
+    <div class="map-controls">
+      <div class="layer-panel">
+        <div class="layer-title">🗂️ Layers</div>
+        <div class="layer-item">
+          <div class="layer-dot" style="background:#468432"></div>
+          <label>Province</label>
+          <label class="toggle-switch"><input type="checkbox" checked onchange="toggleLayer(map,'provinces-fill',this.checked);toggleLayer(map,'provinces-line',this.checked)"/><span class="toggle-slider"></span></label>
+        </div>
+        <div class="layer-item">
+          <div class="layer-dot" style="background:#a8d890"></div>
+          <label>Districts</label>
+          <label class="toggle-switch"><input type="checkbox" onchange="toggleLayer(map,'districts-line',this.checked)"/><span class="toggle-slider"></span></label>
+        </div>
+        <div class="layer-item">
+          <div class="layer-dot" style="background:#e74c3c"></div>
+          <label>Hazard Zones</label>
+          <label class="toggle-switch"><input type="checkbox" checked onchange="toggleHazardLayer(this.checked)"/><span class="toggle-slider"></span></label>
+        </div>
+      </div>
+    </div>
+    <div class="basemap-toggle">
+      <div class="basemap-title">🗺️ Base Map</div>
+      <div class="basemap-options">
+        <button class="basemap-opt active" data-type="osm" onclick="switchBasemap(map,'osm')">Street</button>
+        <button class="basemap-opt" data-type="satellite" onclick="switchBasemap(map,'satellite')">Satellite</button>
+        <button class="basemap-opt" data-type="terrain" onclick="switchBasemap(map,'terrain')">Terrain</button>
+      </div>
+    </div>
+    <div class="map-info-overlay" style="bottom:5rem">
+      <strong>Hazard Colors</strong>
+      <div style="margin-top:0.4rem;font-size:0.72rem">
+        <div><span style="color:#e74c3c">■</span> Landslide</div>
+        <div><span style="color:#3498db">■</span> Flood</div>
+        <div><span style="color:#9b59b6">■</span> Avalanche</div>
+        <div><span style="color:#e67e22">■</span> Rockfall</div>
+        <div><span style="color:#f39c12">■</span> Wildlife</div>
+        <div><span style="color:#8e44ad">■</span> Earthquake</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+<script src="../js/app.js"></script>
+<script>
+Auth.requireLogin();
+injectNavbar('hazards');
+
+let map, allHazards = [], hazardTypeFilter = 'all', riskLevelFilter = 'all';
+const HAZARD_COLORS = {
+  landslide_susceptibility:'#e74c3c', flood_zone:'#3498db', avalanche_area:'#9b59b6',
+  rockfall_zone:'#e67e22', wildlife_risk:'#f39c12', altitude_sickness:'#1abc9c',
+  earthquake_affected:'#8e44ad', leech_forest:'#27ae60'
+};
+const HAZARD_ICONS = {
+  landslide_susceptibility:'⛰️', flood_zone:'🌊', avalanche_area:'🌨️',
+  rockfall_zone:'🪨', wildlife_risk:'🐯', altitude_sickness:'🏔️',
+  earthquake_affected:'🌍', leech_forest:'🌿'
+};
+const RISK_OPACITY = { extreme:0.6, high:0.4, medium:0.25, low:0.12 };
+
+map = createMap('map', [84.0, 28.2], 6.5);
+map.on('load', async () => { await addAdminLayers(map); addProvincePopup(map); await loadHazards(); loadWeatherWidget('weather-hazard', 28.2, 84.0); });
+
+async function loadHazards() {
+  const data = await loadGeoJSON('/api/hazards', '../../data/hazard-zones.geojson');
+  if (!data) return;
+  allHazards = data.features || [];
+  addHazardsToMap({ type:'FeatureCollection', features: allHazards });
+  renderHazardList(allHazards);
+}
+
+function addHazardsToMap(data) {
+  if (map.getSource('hazards')) { map.getSource('hazards').setData(data); return; }
+  map.addSource('hazards', { type:'geojson', data });
+  map.addLayer({ id:'hazards-fill', type:'fill', source:'hazards', paint:{
+    'fill-color':['match',['get','hazard_type'],
+      'landslide_susceptibility','#e74c3c','flood_zone','#3498db','avalanche_area','#9b59b6',
+      'rockfall_zone','#e67e22','wildlife_risk','#f39c12','altitude_sickness','#1abc9c',
+      'earthquake_affected','#8e44ad','leech_forest','#27ae60','#999'],
+    'fill-opacity':['match',['get','risk_level'],'extreme',0.55,'high',0.38,'medium',0.22,'low',0.1,0.15]
+  }});
+  map.addLayer({ id:'hazards-line', type:'line', source:'hazards', paint:{
+    'line-color':['match',['get','hazard_type'],'landslide_susceptibility','#c0392b','flood_zone','#2980b9','#666'],
+    'line-width':1, 'line-opacity':0.5
+  }});
+  map.on('click','hazards-fill', (e) => {
+    const p = e.features[0].properties;
+    const color = HAZARD_COLORS[p.hazard_type] || '#999';
+    const precs = tryParseArr(p.precautions);
+    new maplibregl.Popup({ maxWidth:'300px' }).setLngLat(e.lngLat).setHTML(`
+      <div class="popup-content">
+        <div class="popup-title">${HAZARD_ICONS[p.hazard_type]||'⚠️'} ${p.name}</div>
+        <div class="popup-type" style="color:${color}">${(p.hazard_type||'').replace(/_/g,' ').toUpperCase()}</div>
+        <div class="popup-row"><span>Risk Level</span><strong style="color:${STATUS_COLORS[p.risk_level]||'#999'}">● ${p.risk_level?.toUpperCase()}</strong></div>
+        <div class="popup-row"><span>Area</span><strong>${p.affected_area_km2} km²</strong></div>
+        <div class="popup-row"><span>District</span><strong>${p.district||'—'}</strong></div>
+        <div class="card-desc" style="margin-top:0.5rem">${p.description||''}</div>
+        ${precs.length ? `<div style="margin-top:0.5rem;font-size:0.78rem"><strong style="color:var(--primary-glow)">⚡ Precautions:</strong><ul style="margin:0.3rem 0 0 1rem;color:rgba(255,255,255,0.6)">${precs.map(p=>`<li>${p}</li>`).join('')}</ul></div>`:''}
+      </div>`).addTo(map);
+  });
+  map.on('mouseenter','hazards-fill',()=>{ map.getCanvas().style.cursor='pointer'; });
+  map.on('mouseleave','hazards-fill',()=>{ map.getCanvas().style.cursor=''; });
+}
+
+function renderHazardList(hazards) {
+  const el = document.getElementById('hazardList');
+  if (!hazards.length) { el.innerHTML='<p class="text-muted" style="padding:1rem;text-align:center">No hazards found.</p>'; return; }
+  el.innerHTML = `<div class="section-divider">Hazard Zones (${hazards.length})</div>` +
+    hazards.map(f => {
+      const p = f.properties;
+      const color = HAZARD_COLORS[p.hazard_type] || '#999';
+      const riskColor = STATUS_COLORS[p.risk_level] || '#999';
+      return `<div class="info-card" onclick="flyToHazard(${JSON.stringify(f.geometry.coordinates?.[0]?.[0]||[84,28])})">
+        <div class="card-header">
+          <div class="card-icon" style="background:${color}22;font-size:1.2rem">${HAZARD_ICONS[p.hazard_type]||'⚠️'}</div>
+          <div><div class="card-title">${p.name}</div><div class="card-subtitle">${p.district||''} · ${p.affected_area_km2} km²</div></div>
+          <span class="status-badge" style="background:${riskColor}22;color:${riskColor};margin-left:auto">● ${p.risk_level}</span>
+        </div>
+        <div class="card-desc">${p.description||''}</div>
+      </div>`;
+    }).join('');
+}
+
+function checkLocationRisk() {
+  navigator.geolocation.getCurrentPosition(pos => {
+    const userPt = turf.point([pos.coords.longitude, pos.coords.latitude]);
+    const risks = [];
+    allHazards.forEach(f => {
+      try {
+        if (f.geometry && turf.booleanPointInPolygon(userPt, f)) {
+          risks.push({ name:f.properties.name, type:f.properties.hazard_type, level:f.properties.risk_level });
+        }
+      } catch(e) {}
+    });
+
+    // Show 5km buffer
+    const buf = SpatialTools.createBuffer(userPt, 5);
+    if (map.getSource('risk-buf')) { map.getSource('risk-buf').setData(buf); }
+    else { map.addSource('risk-buf',{type:'geojson',data:buf}); map.addLayer({id:'risk-buf-fill',type:'fill',source:'risk-buf',paint:{'fill-color':'#9b59b6','fill-opacity':0.1,'fill-outline-color':'#9b59b6'}}); }
+    map.flyTo({ center:[pos.coords.longitude, pos.coords.latitude], zoom:9 });
+
+    const result = document.getElementById('riskResult');
+    result.classList.add('show');
+    if (risks.length === 0) {
+      result.innerHTML = '✅ <strong>No major hazards detected</strong> at your current location. Stay safe and check weather forecasts.';
+    } else {
+      result.innerHTML = `⚠️ <strong>${risks.length} hazard(s) detected</strong> at your location:<br><br>` +
+        risks.map(r=>`<span style="color:${HAZARD_COLORS[r.type]||'#999'}">${HAZARD_ICONS[r.type]||'⚠️'} ${r.name}</span> — <strong>${r.level} risk</strong>`).join('<br>');
+    }
+  }, () => alert('Location access required for risk assessment.'));
+}
+
+function applyFilters() {
+  let filtered = allHazards;
+  if (hazardTypeFilter !== 'all') filtered = filtered.filter(f => f.properties.hazard_type === hazardTypeFilter);
+  if (riskLevelFilter !== 'all') filtered = filtered.filter(f => f.properties.risk_level === riskLevelFilter);
+  renderHazardList(filtered);
+  if (map.getSource('hazards')) map.getSource('hazards').setData({type:'FeatureCollection',features:filtered});
+}
+
+function setHazardFilter(type, btn) {
+  document.querySelectorAll('#hazardTypeFilter .pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  hazardTypeFilter = type;
+  applyFilters();
+}
+
+function setRiskFilter(level, btn) {
+  document.querySelectorAll('#riskLevelFilter .pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  riskLevelFilter = level;
+  applyFilters();
+}
+
+function toggleHazardLayer(visible) {
+  toggleLayer(map, 'hazards-fill', visible);
+  toggleLayer(map, 'hazards-line', visible);
+}
+
+function flyToHazard(coord) { if (coord) map.flyTo({ center:coord, zoom:9 }); }
+function tryParseArr(val) { try { return JSON.parse(val)||[]; } catch(e) { return []; } }
+</script>
+</body>
+</html>
